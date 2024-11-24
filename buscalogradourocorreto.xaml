@@ -105,13 +105,13 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1177.6,1880" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap:VirtualizedContainerService.HintSize="1177.6,1881.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="busca_logradouro_correto" sap:VirtualizedContainerService.HintSize="1177.6,1856.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence DisplayName="busca_logradouro_correto" sap:VirtualizedContainerService.HintSize="1177.6,1858.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="var_logradouro" />
         <Variable x:TypeArguments="x:String" Name="var_status" />
@@ -152,19 +152,19 @@
           </scg:List>
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Firefox: Google" sap:VirtualizedContainerService.HintSize="1144,1561.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="bae85968-07f7-46b8-8f30-8a2e1a512124" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Firefox: Google" sap:VirtualizedContainerService.HintSize="1144,1563.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="bae85968-07f7-46b8-8f30-8a2e1a512124" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1110.4,1321.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1110.4,1323.2" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'TEXTAREA APjFqb'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1076.8,286.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Text="[var_logradouro]" Version="V4">
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayAfter="1" DisplayName="Type Into 'TEXTAREA APjFqb'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1076.8,286.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Text="[var_logradouro]" Version="V4">
                 <uix:NTypeInto.Target>
                   <uix:TargetAnchorable BrowserURL="https://www.google.com/" CVScreenId="c0028722-f212-485e-93a8-1523270d36c7" CvElementArea="604, 434, 725, 62" CvType="InputBox" DesignTimeRectangle="664, 438, 504, 57" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='APjFqb' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='APjFqb' tag='TEXTAREA' type='' class='gLFyf' aaname='Pesquisar' /&gt;" Guid="916b9127-3651-4a2b-aaaa-e585f1101c9d" InformativeScreenshot="d0dd67bccaf73d32399716591688c13c.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Google' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
                 </uix:NTypeInto.Target>
@@ -179,7 +179,7 @@
                   </uix:VerifyExecutionTypeIntoOptions>
                 </uix:NTypeInto.VerifyOptions>
               </uix:NTypeInto>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="2" DisplayName="Click 'Pesquisa Google'" sap:VirtualizedContainerService.HintSize="1076.8,225.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Timeout="5" Version="V4">
+              <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click 'Pesquisa Google'" sap:VirtualizedContainerService.HintSize="1076.8,225.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Version="V4">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://www.google.com/" CVScreenId="c0028722-f212-485e-93a8-1523270d36c7" CvElementArea="787, 528, 180, 50" CvTextArea="809, 545, 136, 21" CvTextArgument="Pesquisa Google" CvType="Button" DesignTimeRectangle="790, 532, 175, 45" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-role='button' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;center&amp;gt;input' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' type='submit' tag='INPUT' class='gNO89b' aaname='Pesquisa Google' check:text='Pesquisa Google' /&gt;" Guid="32654092-e9e6-494e-86ce-d0e67a01eb65" InformativeScreenshot="ae9533032343564dd29b7c9ee3912943.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Google' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
                 </uix:NClick.Target>
@@ -194,9 +194,9 @@
                   </uix:VerifyExecutionOptions>
                 </uix:NClick.VerifyOptions>
               </uix:NClick>
-              <uix:NCheckState DisplayName="Check App State 'DIV'" sap:VirtualizedContainerService.HintSize="1076.8,748" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Timeout="1" Version="V4">
+              <uix:NCheckState DisplayName="Check App State 'DIV'" sap:VirtualizedContainerService.HintSize="1076.8,749.6" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Timeout="1" Version="V4">
                 <uix:NCheckState.IfExists>
-                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="512,504.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="512,506.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -211,7 +211,7 @@
                         </uix:TargetAnchorable>
                       </uix:NGetAttributeGeneric.Target>
                     </uix:NGetAttributeGeneric>
-                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,203.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,204.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
