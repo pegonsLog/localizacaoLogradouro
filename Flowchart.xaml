@@ -84,13 +84,14 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Flowchart" sap:VirtualizedContainerService.HintSize="918.4000000000001,589.6" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Flowchart" sap:VirtualizedContainerService.HintSize="1144.8,563.2" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
-      <Variable x:TypeArguments="x:String" Name="io_logradouro" />
-      <Variable x:TypeArguments="x:String" Name="io_status" />
+      <Variable x:TypeArguments="x:String" Name="var_io_logradouro" />
+      <Variable x:TypeArguments="x:String" Name="var_io_status" />
       <Variable x:TypeArguments="x:String" Name="io_logradouro_base" />
       <Variable x:TypeArguments="x:String" Name="io_logradouro_processado_in" />
       <Variable x:TypeArguments="x:String" Name="io_empregado_logradouro_in" />
+      <Variable x:TypeArguments="x:String" Name="var_colaborador" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -113,8 +114,9 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="extrailocalexcel - Invoke Workflow File (extrailocalexcel.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="extrailocalexcel.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_logradouro_base">[io_logradouro]</OutArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_status">[io_status]</OutArgument>
+          <InOutArgument x:TypeArguments="x:String" x:Key="io_status">[var_io_status]</InOutArgument>
+          <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro">[var_io_logradouro]</InOutArgument>
+          <InOutArgument x:TypeArguments="x:String" x:Key="io_colaborador">[var_colaborador]</InOutArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -123,51 +125,54 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
       <FlowStep.Next>
-        <FlowDecision x:Name="__ReferenceID5" Condition="[Not io_status.Equals(&quot;ACABOU&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+        <FlowDecision x:Name="__ReferenceID4" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+          <FlowDecision.Condition>
+            <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="var_io_status.Equals(&quot;A PROCESSAR&quot;)" />
+          </FlowDecision.Condition>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <av:Point x:Key="ShapeLocation">540,240</av:Point>
               <av:Size x:Key="ShapeSize">60,60</av:Size>
               <av:PointCollection x:Key="FalseConnector">540,270 510,270 510,270.2 455.4,270.2</av:PointCollection>
-              <av:PointCollection x:Key="TrueConnector">570,300 570,355</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">570,300 570,330 570.2,330 570.2,465</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
-            <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+            <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">515,355</av:Point>
+                  <av:Point x:Key="ShapeLocation">515,465</av:Point>
                   <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">570,425 570,465</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">625.4,500.2 655,500.2</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="Assign_1">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[io_logradouro_base]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[io_logradouro]</InArgument>
-                </Assign.Value>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="buscalogradourocorreto - Invoke Workflow File (buscalogradourocorreto.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="buscalogradourocorreto.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro">[var_io_logradouro]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_status">[var_io_status]</InOutArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_colaborador">[var_colaborador]</InOutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-              </Assign>
+              </ui:InvokeWorkflowFile>
               <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_3">
+                <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">515,465</av:Point>
+                      <av:Point x:Key="ShapeLocation">655,465</av:Point>
                       <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">625.4,500.2 655,500.2</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">765.4,500.2 795.4,500.2 795.4,150.2 625.4,150.2</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="buscalogradourocorreto - Invoke Workflow File (buscalogradourocorreto.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="buscalogradourocorreto.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="atualizaexcel - Invoke Workflow File (atualizaexcel.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="atualizaexcel.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro_excel_google">[io_logradouro]</InOutArgument>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="io_status_excel_google">[io_status]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro">[var_io_logradouro]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_status">[var_io_status]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_colaborador">[var_colaborador]</InOutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -176,36 +181,14 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InvokeWorkflowFile>
                   <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_4">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">655,465</av:Point>
-                          <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">765.4,500.2 795.4,500.2 795.4,150.2 625.4,150.2</av:PointCollection>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="atualizaexcel - Invoke Workflow File (atualizaexcel.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="atualizaexcel.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_nao_processado">[io_logradouro]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_processado">[io_status]</InArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:InvokeWorkflowFile>
-                      <FlowStep.Next>
-                        <x:Reference>__ReferenceID0</x:Reference>
-                      </FlowStep.Next>
-                    </FlowStep>
+                    <x:Reference>__ReferenceID0</x:Reference>
                   </FlowStep.Next>
                 </FlowStep>
               </FlowStep.Next>
             </FlowStep>
           </FlowDecision.True>
           <FlowDecision.False>
-            <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+            <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">345,235</av:Point>
@@ -242,7 +225,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InvokeWorkflowFile>
                   <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID8" sap2010:WorkflowViewState.IdRef="FlowStep_3">
+                    <FlowStep x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">185,465</av:Point>
@@ -262,7 +245,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:InvokeWorkflowFile>
                       <FlowStep.Next>
-                        <FlowStep x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                        <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_1">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:Point x:Key="ShapeLocation">185,355</av:Point>
@@ -298,9 +281,8 @@
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
-    <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
-    <x:Reference>__ReferenceID8</x:Reference>
   </Flowchart>
 </Activity>

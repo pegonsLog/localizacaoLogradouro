@@ -1,7 +1,8 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="buscalogradourocorreto" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="io_logradouro_excel_google" Type="InOutArgument(x:String)" />
-    <x:Property Name="io_status_excel_google" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_logradouro" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_status" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_colaborador" Type="InOutArgument(x:String)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -104,39 +105,48 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1177.6,1848" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap:VirtualizedContainerService.HintSize="1177.6,1880" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="busca_logradouro_correto" sap:VirtualizedContainerService.HintSize="1177.6,1824.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence DisplayName="busca_logradouro_correto" sap:VirtualizedContainerService.HintSize="1177.6,1856.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <Sequence.Variables>
-        <Variable x:TypeArguments="x:String" Name="io_logradouro_base" />
-        <Variable x:TypeArguments="x:String" Name="io_status" />
+        <Variable x:TypeArguments="x:String" Name="var_logradouro" />
+        <Variable x:TypeArguments="x:String" Name="var_status" />
+        <Variable x:TypeArguments="x:String" Name="var_colaborador" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1144,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1144,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
               <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[io_logradouro_base]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[var_logradouro]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[io_logradouro_excel_google]</InArgument>
+                <InArgument x:TypeArguments="x:String">[io_logradouro]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
               <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[io_status]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[var_status]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[io_status_excel_google]</InArgument>
+                <InArgument x:TypeArguments="x:String">[io_status]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[var_colaborador]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[io_colaborador]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
@@ -154,7 +164,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'TEXTAREA APjFqb'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1076.8,286.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Text="[io_logradouro_base]" Version="V4">
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'TEXTAREA APjFqb'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1076.8,286.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Text="[var_logradouro]" Version="V4">
                 <uix:NTypeInto.Target>
                   <uix:TargetAnchorable BrowserURL="https://www.google.com/" CVScreenId="c0028722-f212-485e-93a8-1523270d36c7" CvElementArea="604, 434, 725, 62" CvType="InputBox" DesignTimeRectangle="664, 438, 504, 57" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='APjFqb' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='APjFqb' tag='TEXTAREA' type='' class='gLFyf' aaname='Pesquisar' /&gt;" Guid="916b9127-3651-4a2b-aaaa-e585f1101c9d" InformativeScreenshot="d0dd67bccaf73d32399716591688c13c.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Google' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
                 </uix:NTypeInto.Target>
@@ -192,7 +202,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="innerText" DelayAfter="1" DisplayName="Get Attribute" sap:VirtualizedContainerService.HintSize="478.4,240" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_2" Result="[io_logradouro_base]" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Version="V4">
+                    <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="innerText" DelayAfter="1" DisplayName="Get Attribute" sap:VirtualizedContainerService.HintSize="478.4,240" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_2" Result="[var_logradouro]" ScopeIdentifier="bae85968-07f7-46b8-8f30-8a2e1a512124" Version="V4">
                       <uix:NGetAttributeGeneric.Target>
                         <uix:TargetAnchorable BrowserURL="https://www.google.com/search?q=av.+rio+negro%2C+683+-+dom+bosco+-+betim&amp;sca_esv=33eeff773bbaf247&amp;sxsrf=ADLYWIIRGLmU7qfdm-KUNIWdbRt4P6YJlA%3A1731714950897&amp;source=hp&amp;ei=ht83Z5CZM9-85OUP64yF8A8&amp;iflsig=AL9hbdgAAAAAZzftlt2-qiaoQaxFzfSFPsXVJtzUjXog&amp;oq=&amp;gs_lp=Egdnd3Mtd2l6IgAqAggAMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCMgcQIxgnGOoCSLwJUABYAHABeACQAQCYAQCgAQCqAQC4AQHIAQCYAgGgAg6oAgqYAw6SBwExoAcA&amp;sclient=gws-wiz" CVScreenId="c7a53652-1034-468c-a800-baa710f0534d" DesignTimeRectangle="253, 833, 360, 36" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='aiAXrc' parentid='rso' tag='DIV' /&gt;" FuzzyAccuracy="1" Guid="097a6538-2399-447c-9b02-7e4cffe755ee" ImageBase64="" ScopeSelectorArgument="&lt;html app='firefox.exe' title='av. rio negro, 683 - dom bosco - betim - Pesquisa Google' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
@@ -206,7 +216,7 @@
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
                             <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">[io_status]</OutArgument>
+                              <OutArgument x:TypeArguments="x:String">[var_status]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">OK</InArgument>
@@ -214,18 +224,18 @@
                           </ui:AssignOperation>
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
                             <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">[io_logradouro_excel_google]</OutArgument>
+                              <OutArgument x:TypeArguments="x:String">[io_logradouro]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">[io_logradouro_base]</InArgument>
+                              <InArgument x:TypeArguments="x:String">[var_logradouro]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
                             <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">[io_status_excel_google]</OutArgument>
+                              <OutArgument x:TypeArguments="x:String">[io_status]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">[io_status]</InArgument>
+                              <InArgument x:TypeArguments="x:String">[var_status]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                         </scg:List>
@@ -245,7 +255,7 @@
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
                             <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">[io_logradouro_excel_google]</OutArgument>
+                              <OutArgument x:TypeArguments="x:String">[io_logradouro]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">NÃO ENCONTRADO</InArgument>
@@ -253,7 +263,7 @@
                           </ui:AssignOperation>
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
                             <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">[io_status_excel_google]</OutArgument>
+                              <OutArgument x:TypeArguments="x:String">[io_status]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">NÃO ENCONTRADO</InArgument>
