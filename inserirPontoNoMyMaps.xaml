@@ -111,10 +111,10 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="inserirPontoNoMyMaps" sap:VirtualizedContainerService.HintSize="1061,1730" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="inserirPontoNoMyMaps" sap:VirtualizedContainerService.HintSize="1095,1732" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="io_logradouro_processado_in" />
-      <Variable x:TypeArguments="x:String" Name="io_empregado_logradouro_in" />
+      <Variable x:TypeArguments="x:String" Name="var_logradouro_processado" />
+      <Variable x:TypeArguments="x:String" Name="var_empregado_logradouro" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -126,36 +126,36 @@
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[io_logradouro_processado_in]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[var_logradouro_processado]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[io_logradouro_processado]</InArgument>
+              <InArgument x:TypeArguments="x:String">[var_logradouro_processado]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[io_empregado_logradouro_in]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[var_empregado_logradouro]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[io_empregado_logradouro]</InArgument>
+              <InArgument x:TypeArguments="x:String">[var_empregado_logradouro]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser Firefox: Roteamento - Google My Maps" sap:VirtualizedContainerService.HintSize="520,1389" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="f9604c03-ba31-4ded-88c5-ce4999d1096f" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Firefox: Roteamento - Google My Maps" sap:VirtualizedContainerService.HintSize="520,1391" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="f9604c03-ba31-4ded-88c5-ce4999d1096f" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="486,1140" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="486,1142" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="2" DisplayName="Type Into 'INPUT mapsprosearch-fie…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="452,286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="f9604c03-ba31-4ded-88c5-ce4999d1096f" Text="[io_logradouro_processado_in]" Version="V4">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="2" DisplayName="Type Into 'INPUT mapsprosearch-fie…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="452,286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="f9604c03-ba31-4ded-88c5-ce4999d1096f" Text="[var_logradouro_processado]" Version="V4">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/d/edit?hl=pt-BR&amp;mid=14fqKd3RsryYoRQVeKWgncx6eMqvwIRo&amp;ll=-19.943776148529775%2C-43.9514412&amp;z=13" DesignTimeRectangle="444, 213, 500, 42" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='' class='tk3N6e-y4JFTd' aaname='' /&gt;" Guid="c6a3cae5-c66a-412a-9f4c-f3c0f23cbcd4" InformativeScreenshot="9d5d881280b06c0ef68f1ea4f1602c4b.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Roteamento - Google My Maps' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -197,7 +197,7 @@
                 </uix:VerifyExecutionOptions>
               </uix:NClick.VerifyOptions>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="5" DisplayName="Click 'Adicionar ao mapa'" sap:VirtualizedContainerService.HintSize="452,225" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9604c03-ba31-4ded-88c5-ce4999d1096f" Version="V4">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="2" DisplayName="Click 'Adicionar ao mapa'" sap:VirtualizedContainerService.HintSize="452,225" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f9604c03-ba31-4ded-88c5-ce4999d1096f" Version="V4">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.google.com/maps/d/edit?hl=pt-BR&amp;mid=14fqKd3RsryYoRQVeKWgncx6eMqvwIRo&amp;ll=-19.954659290672325%2C-43.98386080000001&amp;z=18" CVScreenId="3c18cc05-65f5-4363-9f13-42502c6d223f" CvTextArea="781, 504, 159, 21" CvTextArgument="+ Adicionar ao mapa" CvType="Text" DesignTimeRectangle="775, 495, 174, 37" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzyAccuracy="1" FuzzySelectorArgument="&lt;webctrl aaname='Adicionar ao mapa' tag='DIV' type='' class='JIbV8-TaUzNb-LgbsSe' check:innerText='Adicionar ao mapa' /&gt;" Guid="b2b8d5a4-9c41-45da-8283-170508828993" InformativeScreenshot="acd3a52596114909e0d0cdd289de1f95.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Roteamento - Google My Maps' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -240,10 +240,10 @@
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[io_empregado_logradouro]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[var_empregado_logradouro]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[io_empregado_logradouro_in]</InArgument>
+              <InArgument x:TypeArguments="x:String">[var_empregado_logradouro]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>

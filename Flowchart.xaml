@@ -84,19 +84,19 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Flowchart" sap:VirtualizedContainerService.HintSize="1144.8,563.2" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Flowchart" sap:VirtualizedContainerService.HintSize="1112,487" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="var_io_logradouro" />
       <Variable x:TypeArguments="x:String" Name="var_io_status" />
       <Variable x:TypeArguments="x:String" Name="io_logradouro_base" />
-      <Variable x:TypeArguments="x:String" Name="io_logradouro_processado_in" />
-      <Variable x:TypeArguments="x:String" Name="io_empregado_logradouro_in" />
+      <Variable x:TypeArguments="x:String" Name="var_logradouro_processado" />
+      <Variable x:TypeArguments="x:String" Name="var_empregado_logradouro" />
       <Variable x:TypeArguments="x:String" Name="var_colaborador" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <av:Size x:Key="ShapeSize">49.6,49.6</av:Size>
+        <av:Size x:Key="ShapeSize">50,50</av:Size>
         <av:Point x:Key="ShapeLocation">545,35</av:Point>
         <av:PointCollection x:Key="ConnectorLocation">570,85 570,115</av:PointCollection>
       </scg:Dictionary>
@@ -108,11 +108,11 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">515,115</av:Point>
-          <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
+          <av:Size x:Key="ShapeSize">110,70</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">570,185 570,240</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="extrailocalexcel - Invoke Workflow File (extrailocalexcel.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="extrailocalexcel.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="extrailocalexcel - Invoke Workflow File (extrailocalexcel.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="extrailocalexcel.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InOutArgument x:TypeArguments="x:String" x:Key="io_status">[var_io_status]</InOutArgument>
           <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro">[var_io_logradouro]</InOutArgument>
@@ -125,10 +125,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
       <FlowStep.Next>
-        <FlowDecision x:Name="__ReferenceID4" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
-          <FlowDecision.Condition>
-            <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="var_io_status.Equals(&quot;A PROCESSAR&quot;)" />
-          </FlowDecision.Condition>
+        <FlowDecision x:Name="__ReferenceID4" Condition="[var_io_status.Equals(&quot;A PROCESSAR&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -143,11 +140,11 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">515,465</av:Point>
-                  <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
+                  <av:Size x:Key="ShapeSize">110,70</av:Size>
                   <av:PointCollection x:Key="ConnectorLocation">625.4,500.2 655,500.2</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="buscalogradourocorreto - Invoke Workflow File (buscalogradourocorreto.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="buscalogradourocorreto.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="buscalogradourocorreto - Invoke Workflow File (buscalogradourocorreto.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="buscalogradourocorreto.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro">[var_io_logradouro]</InOutArgument>
                   <InOutArgument x:TypeArguments="x:String" x:Key="io_status">[var_io_status]</InOutArgument>
@@ -164,11 +161,11 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">655,465</av:Point>
-                      <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
+                      <av:Size x:Key="ShapeSize">110,70</av:Size>
                       <av:PointCollection x:Key="ConnectorLocation">765.4,500.2 795.4,500.2 795.4,150.2 625.4,150.2</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="atualizaexcel - Invoke Workflow File (atualizaexcel.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="atualizaexcel.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="atualizaexcel - Invoke Workflow File (atualizaexcel.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="atualizaexcel.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro">[var_io_logradouro]</InOutArgument>
                       <InOutArgument x:TypeArguments="x:String" x:Key="io_status">[var_io_status]</InOutArgument>
@@ -192,11 +189,11 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">345,235</av:Point>
-                  <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
+                  <av:Size x:Key="ShapeSize">110,70</av:Size>
                   <av:PointCollection x:Key="ConnectorLocation">400.2,305.4 400.2,355</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;TODOS FORAM PROCESSADOS&quot;]">
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;TODOS FORAM PROCESSADOS&quot;]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -208,15 +205,15 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">345,355</av:Point>
-                      <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
+                      <av:Size x:Key="ShapeSize">110,70</av:Size>
                       <av:PointCollection x:Key="ConnectorLocation">400,425 400,500 295,500</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="extraiLocalExcelMyMaps - Invoke Workflow File (extraiLocalExcelMyMaps.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="extraiLocalExcelMyMaps.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="extraiLocalExcelMyMaps - Invoke Workflow File (extraiLocalExcelMyMaps.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="extraiLocalExcelMyMaps.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <OutArgument x:TypeArguments="x:String" x:Key="out_status">[io_status_excel_google]</OutArgument>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro_processado">[io_logradouro_processado_in]</InOutArgument>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="io_empregado_logradouro">[io_empregado_logradouro_in]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro_processado">[var_logradouro_processado]</InOutArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="io_empregado_logradouro">[var_empregado_logradouro]</InOutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -229,14 +226,14 @@
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">185,465</av:Point>
-                          <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
+                          <av:Size x:Key="ShapeSize">110,70</av:Size>
                           <av:PointCollection x:Key="ConnectorLocation">240,465 240,425</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inserirPontoNoMyMaps - Invoke Workflow File (inserirPontoNoMyMaps.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="inserirPontoNoMyMaps.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inserirPontoNoMyMaps - Invoke Workflow File (inserirPontoNoMyMaps.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="inserirPontoNoMyMaps.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InOutArgument x:TypeArguments="x:String" x:Key="io_empregado_logradouro">[io_empregado_logradouro_in]</InOutArgument>
-                          <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro_processado">[io_logradouro_processado_in]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_empregado_logradouro">[var_empregado_logradouro]</InOutArgument>
+                          <InOutArgument x:TypeArguments="x:String" x:Key="io_logradouro_processado">[var_logradouro_processado]</InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -249,13 +246,13 @@
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:Point x:Key="ShapeLocation">185,355</av:Point>
-                              <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
+                              <av:Size x:Key="ShapeSize">110,70</av:Size>
                               <av:PointCollection x:Key="ConnectorLocation">295.4,390.2 345,390.2</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="atualizaExcelPosMyMaps - Invoke Workflow File (atualizaExcelPosMyMaps.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="atualizaExcelPosMyMaps.xaml">
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="atualizaExcelPosMyMaps - Invoke Workflow File (atualizaExcelPosMyMaps.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="atualizaExcelPosMyMaps.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
-                              <InOutArgument x:TypeArguments="x:String" x:Key="io_empregado_logradouro_in">[io_empregado_logradouro_in]</InOutArgument>
+                              <InOutArgument x:TypeArguments="x:String" x:Key="io_empregado_logradouro" />
                             </ui:InvokeWorkflowFile.Arguments>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
